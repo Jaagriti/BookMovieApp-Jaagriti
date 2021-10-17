@@ -6,8 +6,6 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
-import PropTypes from 'prop-types';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import logo from '../../assets/logo.svg';
 import FormControl from '@material-ui/core/FormControl';
 
