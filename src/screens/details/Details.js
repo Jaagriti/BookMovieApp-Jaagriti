@@ -122,7 +122,7 @@ class Details extends Component {
                             </Typography>
                             <YouTube
                                 videoId={movie.trailer_url.split("?v=")[1]}
-                                opts={opts}
+                               
                                 onReady={this._onReady}
                             />
                         </div>
