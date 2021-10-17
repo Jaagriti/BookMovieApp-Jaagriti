@@ -4,18 +4,10 @@ import Header from '../../common/header/Header';
 import { withStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
-import GridListTileBar from '@material-ui/core/GridListTileBar';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import FormControl from '@material-ui/core/FormControl';
 import Typography from '@material-ui/core/Typography';
-import InputLabel from '@material-ui/core/InputLabel';
-import Input from '@material-ui/core/Input';
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
-import Checkbox from '@material-ui/core/Checkbox';
-import ListItemText from '@material-ui/core/ListItemText';
-import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
@@ -39,6 +31,18 @@ const styles = theme => ({
 class Home extends Component {
 
     constructor() {
+        super();
+        this.state = {
+            movieName: "",
+            upcomingMovies: [],
+            releasedMovies: [],
+            genres: [],
+            artists: [],
+            genresList: [],
+            artistsList: [],
+            releaseDateStart: "",
+            releaseDateEnd: ""
+        }
 
     }
 
@@ -46,6 +50,7 @@ class Home extends Component {
   
         let movieData = null;
         let httpReq = new XMLHttpRequest();
+        let that = this;
         httpReq.addEventListener("readystatechange", function () {
                      that.setState({
                     upcomingMovies: JSON.parse(this.responseText).movies
@@ -59,6 +64,7 @@ class Home extends Component {
 
         let movieDataGenres = null;
         let httpReqGenres = new XMLHttpRequest();
+        
         httpReqGenres.addEventListener("readystatechange", function () {
             
                 that.setState({
@@ -104,9 +110,9 @@ class Home extends Component {
             <div>
                 <Header baseUrl={this.props.baseUrl} />
 
-                <div className={classes.grid-item-movie }>
+                
                     <span>Upcoming Movies</span>
-                </div>
+              
 
                 <GridList cols={5} className={classes.gridListUpcomingMovies} >
                     {this.state.upcomingMovies.map(movie => (
@@ -121,7 +127,7 @@ class Home extends Component {
                     <div className="left">
                         <GridList cellHeight={350} cols={4} className={classes.gridListMain}>
                             {this.state.releasedMovies.map(movie => (
-                                <GridListTile onClick={() => this.movieClickHandler(movie.id)} className="grid-item-movie" key={"grid" + movie.id}>
+                                <GridListTile onClick={() => this.movieClickHandler(movie.id)}  key={"grid" + movie.id}>
                                     <img src={movie.poster_url} className="movie-poster" alt={movie.title} />
                         
                                 </GridListTile>
