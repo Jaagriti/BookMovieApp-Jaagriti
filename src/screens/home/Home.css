@@ -1,0 +1,34 @@
+.poster {
+    height: 100%;
+    width: auto;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.left {
+    width: 76%;
+}
+
+.right {
+    padding-top: 20px;
+    width: 24%;
+}
+
+.grid-item-movie {
+    margin: 15px;
+}
+
+@media (max-width: 992px) {
+
+    .left {
+        width: 100%;
+    }
+    .right {
+        width: 90%;
+    }
+    .grid-item-movie {
+        margin: 8px;
+    }
+}
